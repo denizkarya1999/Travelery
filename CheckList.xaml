@@ -1,0 +1,85 @@
+﻿<Page
+    x:Class="project_travel.CheckList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:project_travel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="DarkRed">
+    <ScrollViewer  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Height="640" Width="1024">
+            <Rectangle Margin="106,22,106,10" Fill="Gray"></Rectangle>
+            <RelativePanel RenderTransformOrigin="0.5,0.5" Margin="183,129,0,333" HorizontalAlignment="Left" Width="287">
+                <RelativePanel.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </RelativePanel.RenderTransform>
+                <ListView x:Name="beforeList" Height="177" Width="287" RenderTransformOrigin="0.5,0.5">
+                    <ListView.RenderTransform>
+                        <CompositeTransform ScaleY="-1"/>
+                    </ListView.RenderTransform>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <CheckBox x:Name="beforeCheckBox" Content="{Binding Name}" IsChecked="False" Checked="beforeChecked" Unchecked="beforeUnchecked" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RelativePanel>
+            <RelativePanel Margin="562,134,189,333">
+                <ListView x:Name="whileList" Height="176" Width="272">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <CheckBox x:Name="whileCheckBox" Content="{Binding Name}" IsChecked="False" Checked="whileChecked" Unchecked="whileUnchecked" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RelativePanel>
+            <RelativePanel Margin="388,418,365,73">
+                <ListView x:Name="afterList" Height="152" Width="270">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <CheckBox x:Name="afterCheckBox" Content="{Binding Name}" IsChecked="False" Checked="afterChecked" Unchecked="afterUnchecked" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RelativePanel>
+            <TextBox x:Name="addBeforeTextBox" HorizontalAlignment="Left" Margin="183,93,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="213" RenderTransformOrigin="0.367,-0.121" PlaceholderText="Add Before Travel Task" FontSize="18"/>
+            <Button x:Name="addBeforeBtn" Content="Add" Margin="396,93,0,0" VerticalAlignment="Top" Height="36" Width="74" Tapped="beforeBtnTapped"/>
+            <TextBox x:Name="addWhileTextBox" HorizontalAlignment="Left" Margin="562,94,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="203" RenderTransformOrigin="0.367,-0.121" PlaceholderText="Add While Travel Task" FontSize="18"/>
+            <Button x:Name="addWhileBtn" Content="Add" Margin="765,94,0,0" VerticalAlignment="Top" Height="35" Width="70" Tapped="whileBtnTapped"/>
+            <TextBox x:Name="addAfterTextBox" HorizontalAlignment="Left" Margin="388,382,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="200" RenderTransformOrigin="0.367,-0.121" PlaceholderText="Add After Travel Task" FontSize="18"/>
+            <Button x:Name="addAfterBtn" Content="Add" Margin="588,382,0,0" VerticalAlignment="Top" Height="35" Width="76" Tapped="afterBtnTapped"/>
+            <Button x:Name="checkBeforeListBtn" Content="Check" Margin="281,316,0,0" VerticalAlignment="Top" Height="34" Width="91" Tapped="beforeListCompleteTapped"/>
+            <Button x:Name="checkWhileListBtn" Content="Check" Margin="652,320,0,0" VerticalAlignment="Top" Height="37" Width="93" Tapped="whileListCompleteTapped"/>
+            <Button x:Name="checkAfterListBtn" Content="Check" Margin="480,582,0,0" VerticalAlignment="Top" Height="36" Width="87" Tapped="afterListCompleteTapped"/>
+            <Grid HorizontalAlignment="Center" Height="47" Margin="0,22,0,0" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle HorizontalAlignment="Center" Height="45" Fill="White" VerticalAlignment="Center" Width="812"/>
+                <Rectangle HorizontalAlignment="Left" Height="45" Fill="LightGreen" VerticalAlignment="Center" Width="69" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <CompositeTransform ScaleX="-1"/>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Image x:Name="home_button" HorizontalAlignment="Left" Height="38" Margin="17,10,0,0" VerticalAlignment="Top" Width="35" Source="/Assets/home_selected.png" Tapped="home_button_Tapped"/>
+                <Image x:Name="maps_button" HorizontalAlignment="Left" Height="26" Margin="97,0,0,0" VerticalAlignment="Center" Width="17" Source="/Assets/maps.png" Tapped="maps_button_Tapped"/>
+                <Rectangle HorizontalAlignment="Left" Height="2" Fill="LightGreen" VerticalAlignment="Top" Width="37" RenderTransformOrigin="0.5,0.5" Margin="191,42,0,0">
+                    <Rectangle.RenderTransform>
+                        <CompositeTransform ScaleX="-1"/>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Image x:Name="videos_button" HorizontalAlignment="Left" Height="30" VerticalAlignment="Center" Width="26" Source="/Assets/videos.png" Margin="145,0,0,0" Tapped="videos_button_Tapped"/>
+                <Image x:Name="checklist_button" HorizontalAlignment="Left" Height="25" VerticalAlignment="Center" Width="30" Source="/Assets/checklist.png" Margin="195,0,0,0"/>
+                <HyperlinkButton x:Name="about_button" Content="About" Margin="751,0,0,0" Tapped="about_button_Tapped" FontSize="16"/>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>

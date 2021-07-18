@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="project_travel.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:project_travel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="DarkRed">
+    <ScrollViewer  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid>
+        <Rectangle HorizontalAlignment="Center" Height="589" Fill="White" VerticalAlignment="Center" Width="812"/>
+        <ComboBox x:Name="countries_combobox" Margin="0,448,0,0" Width="350" Height="48" HorizontalAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" Text="Where do you want to travel?" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="470" Foreground="Black" FontSize="36" Margin="0,379,0,0"/>
+        <Image HorizontalAlignment="Center" Height="257" Margin="0,102,0,0" VerticalAlignment="Top" Width="218" Source="/passport.png"/>
+        <Rectangle HorizontalAlignment="Center" Height="47" Fill="Black" VerticalAlignment="Top" Width="134" RenderTransformOrigin="0.5,0.5" Margin="0,536,0,0">
+            <Rectangle.RenderTransform>
+                <CompositeTransform ScaleY="-1"/>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Button x:Name="next_button" Content="Next" Margin="0,536,0,0" VerticalAlignment="Top" Height="47" Width="135" FontSize="24" Tapped="next_button_Tapped" HorizontalAlignment="Center"/>
+    </Grid>
+    </ScrollViewer>
+</Page>
